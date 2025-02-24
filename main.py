@@ -5,7 +5,7 @@ app = Flask(__name__)
 # Lista para armazenar histórico de IMCs
 historico = []
 
-
+# Função para cálculo do IMC
 def calcular_imc(peso, altura):
     imc = peso / (altura ** 2)
     if imc < 18.5:
@@ -22,12 +22,12 @@ def calcular_imc(peso, altura):
         categoria = "Obesidade grau 3"
     return round(imc, 2), categoria
 
-
+# Rota main
 @app.route('/')
 def index():
     return render_template('index.html', historico=historico)
 
-
+# Rota
 @app.route('/calcular', methods=['POST'])
 def calcular():
     nome = request.form['nome']
@@ -49,6 +49,6 @@ def calcular():
 
     return render_template('index.html', historico=historico)
 
-
+# Função para inicialização
 if __name__ == '__main__':
     app.run(debug=True)
