@@ -33,11 +33,19 @@ def calcular():
     nome = request.form['nome']
     peso = float(request.form['peso'])
     altura = float(request.form['altura'])
+    idade = int(request.form['idade'])
 
     imc, categoria = calcular_imc(peso, altura)
 
     # Adiciona ao histórico
-    historico.append({"nome": nome, "peso": peso, "altura": altura, "imc": imc, "categoria": categoria})
+    historico.append({
+        "nome": nome,
+        "idade": idade,
+        "peso": peso,
+        "altura": altura,
+        "imc": imc,
+        "categoria": categoria
+    })
 
     return render_template('index.html', historico=historico)
 
