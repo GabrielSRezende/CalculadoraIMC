@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Lista para armazenar histórico de IMCs
+# Criando lista para armazenar o estoque
 historico = []
 
 # Função para cálculo do IMC
