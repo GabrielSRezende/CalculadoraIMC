@@ -27,7 +27,7 @@ def calcular_imc(peso, altura):
 def index():
     return render_template('index.html', historico=historico)
 
-# Rota
+# Atualizando estrutura principal
 @app.route('/calcular', methods=['POST'])
 def calcular():
     nome = request.form['nome']
